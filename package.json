@@ -1,0 +1,26 @@
+{
+  "name": "city_weather",
+  "version": "1.0.0",
+  "description": "gets weather data for city name provided",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sayeefb/city_weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sayeefb/city_weather/issues"
+  },
+  "engines": {
+    "node": "12.4.1"
+  },
+  "homepage": "https://github.com/sayeefb/city_weather#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}

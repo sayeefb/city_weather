@@ -1,0 +1,40 @@
+<head>
+</head>
+<body>
+  <h1>City Weather</h1>
+  <div>
+    <input id="city" type="text" placeholder="Enter City">
+  </div>
+  <div style="margin-top:10px;">
+    <button id="submit" onclick="getWeather(event)">Get Weather</button>
+  </div>
+  <div id="weather">
+    <p>City Name: <span id="cityName"></span></p>
+    <p>Temperature(F): <span id="temp"></span></p>
+    <p>Feels Like(F): <span id="feels_like"></span></p>
+    <p>Temperature Min(F): <span id="temp_min"></span></p>
+    <p>Temperature Max(F): <span id="temp_max"></span></p>
+    <p>Pressure: <span id="pressure"></span></p>
+    <p>Humidity: <span id="humidity"></span></p>
+    <p>Description: <span id="desc"></span></p>
+  </div>
+</body>
+<script type="text/javascript">
+  var getWeather = function(e){
+    let cityName = document.querySelector('#city').value;
+    fetch(`/weather?city=${cityName}`)
+    .then(resp => {
+      return resp.json();
+    })
+    .then(res => {
+      document.querySelector('#cityName').innerHTML = res.name;
+      document.querySelector('#temp').innerHTML = res.detail.temp;
+      document.querySelector('#feels_like').innerHTML = res.detail.feels_like;
+      document.querySelector('#temp_min').innerHTML = res.detail.temp_min;
+      document.querySelector('#temp_max').innerHTML = res.detail.temp_max;
+      document.querySelector('#pressure').innerHTML = res.detail.pressure;
+      document.querySelector('#humidity').innerHTML = res.detail.humidity;
+      document.querySelector('#desc').innerHTML = res.weather.description;
+    })
+  }
+</script>
